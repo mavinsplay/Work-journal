@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Works log</h2>
+
+{% for user in data %}
+    <h3>Action # {{ user.id }}</h3>
+    <table>
+        <tr>
+            <th>Название работы</th>
+            <th>фамилия и имя ответственного</th>
+            <th>продолжительность в часах</th>
+            <th>список id команды</th>
+            <th>завершена или нет</th>
+        </tr>
+        <tr>
+            <td>{{ user.job }}</td>
+            <td>{{ user.user.surname }} {{ user.user.name }}</td>
+            <td>{{ user.work_size }}</td>
+            <td>{{ user.collaborators }}</td>
+            <td>{{ user.is_finished }}</td>
+        </tr>
+    </table>
+{% endfor %}
+
+
+{% endblock %}
